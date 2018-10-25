@@ -8,7 +8,6 @@
     <script type="text/javascript" src="Scripts/jquery-1.10.2.min.js"></script>
     <script type="text/javascript" src="Scripts/bootstrap.min.js"></script>
     <script type="text/javascript" src="Scripts/quagga.min.js"></script>
-    <script src="js.cookie.js"></script>
     <style>
         #interactive.viewport {
             position: relative;
@@ -112,7 +111,7 @@ $(function() {
 	Quagga.onDetected(function(result) {
 		if (result.codeResult.code){
 			$('#scanner_input').val(result.codeResult.code);
-			Cookies.set('nombre', result.codeResult.code); //cookie de sesión
+			$("#cod").val(result.codeResult.code);
 			Quagga.stop();
 			setTimeout(function(){ $('#livestream_scanner').modal('hide'); }, 1000);
 		}
@@ -171,5 +170,7 @@ $(function() {
             </div><!-- /.modal-content -->
         </div><!-- /.modal-dialog -->
     </div><!-- /.modal -->
+	
+	<input id="cod" name="cod" type="hidden">
 </body>
 </html>
